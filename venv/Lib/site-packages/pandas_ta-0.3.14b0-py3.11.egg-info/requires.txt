@@ -1,0 +1,17 @@
+pandas
+
+[dev]
+alphaVantage-api
+matplotlib
+mplfinance
+scipy
+sklearn
+statsmodels
+stochastic
+talib
+tqdm
+vectorbt
+yfinance
+
+[test]
+ta-lib
