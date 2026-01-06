@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales (CRÍTICO: Esto evita subir venv de Windows a Linux)
+venv/
+env/
+.env
+.venv/
+
+# Variables de entorno y secretos (SEGURIDAD)
+.env
+.env.local
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Bases de datos locales
+*.sqlite3
+*.db
+
+# IDEs y Sistemas Operativos
+.vscode/
+.idea/
+.DS_Store
+.idx/

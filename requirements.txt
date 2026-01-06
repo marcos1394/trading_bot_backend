@@ -39,7 +39,6 @@ multidict==6.4.3
 numpy==1.26.4
 packaging==25.0
 pandas==2.2.3
-pandas-ta==0.3.14b0
 passlib==1.7.4
 pluggy==1.5.0
 prometheus_client==0.21.1

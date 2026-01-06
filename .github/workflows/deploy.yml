@@ -1,0 +1,35 @@
+name: Deploy to Google Cloud VM
+
+on:
+  push:
+    branches:
+      - main  # Se activa al hacer push a la rama main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to VM via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            # 1. Ir a la carpeta
+            cd ~/trading_bot_backend
+            
+            # 2. Descargar cambios (git pull)
+            git pull origin main
+            
+            # 3. Activar entorno virtual e instalar nuevas librerías (si las hubiera)
+            source venv/bin/activate
+            pip install -r requirements.txt
+            
+            # 4. Reiniciar el servicio del bot (Lo configuraremos en el siguiente paso)
+            sudo systemctl restart tradingbot
+            echo "Despliegue completado. (Recuerda configurar systemd para reiniciar automático)"
